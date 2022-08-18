@@ -1,6 +1,7 @@
 import requests
 import lxml.html
 import os
+import random
 
 from os.path import expanduser
 
@@ -42,10 +43,14 @@ def parse(url):
         for i in range(len(text_original)):
             txt_file.write(text_original[i])
             txt_file.write(text_translate[i])
+    try:
+        os.rename("text.txt", f"{parse_name(url)}.txt")
+    except Exception as e:
+        os.rename(
+            "text.txt", f"{parse_name(url)}.{random.randint(0, 100)}.txt")
+        return f'{e}'
 
-    os.rename("text.txt", f"{parse_name(url)}.txt")
     txt_file.close()
-    # 1. Написать проверку на уже существующее название файла
     # 2. Некоторые песни без перехода на новую строку
 
 
