@@ -30,7 +30,8 @@ def get_request(update, context):
         resize_keyboard=True)
     context.bot.send_message(
         chat_id=chat.id,
-        text='Привет, {}. Отправь ссылку на песню с адреса Amalgama-lab.com'.format(name),
+        text='Привет, {}. Отправь ссылку на '
+             'песню с адреса Amalgama-lab.com'.format(name),
         reply_markup=button
     )
 
